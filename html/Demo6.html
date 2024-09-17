@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="test"></h1>
+
+    <script>
+        const fruits={
+            Apple: 300,
+            Orange: 200,
+            Grapes: 100
+        };
+
+        let text="";
+        for(let[Fruit, amount] of Object.entries(fruits)){
+            text+=Fruit+ " : " +amount+ "<br>";
+        }
+
+        document.getElementById('test').innerHTML=text;
+    </script>
+
+</body>
+</html>

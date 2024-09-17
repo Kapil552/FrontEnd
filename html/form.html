@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body style="background-color:aquamarine;">
+    <form style="margin-left: 10%; margin-top: 5%;">
+        <h1 style="color: brown;"><u>Student Form</u></h1>
+        <div>
+            <label>Name :</label><br>
+            <input type="text" id="name" placeholder="Enter Your Name" onchange="myFunc1()">
+        </div><br>
+
+        <div>
+            <label>Age  :</label><br>
+            <input type="text" id="age" placeholder="Enter Age" onchange="myFunc1()">
+        </div><br>
+
+        <div>
+            <label>Contact  :</label><br>
+            <input type="text" id="contact" placeholder="Enter Contact" onchange="myFunc1()">
+        </div><br>
+
+        <div>
+            <label>Address  :</label><br>
+            <textarea id="address" placeholder="Enter your address" rows="5" cols="50" onchange="myFunc1()"></textarea>
+        </div><br>
+
+        <button type="submit" id="button" onclick="myFunc2()">Submit</button>
+    </form>
+        <script>
+            function myFunc1(){
+                let myName=document.getElementById("name").value;
+                let myAge=document.getElementById("age").value;
+                let myContact=document.getElementById("contact").value;
+                let myAddress=document.getElementById("address").value;
+            }
+            function myFunc2(){
+                let myName=document.getElementById("name").value;
+                let myAge=document.getElementById("age").value;
+                let myContact=document.getElementById("contact").value;
+                let myAddress=document.getElementById("address").value;
+                
+                alert("Name : " +myName+ " \nAge :" +myAge+ " \nContact : " +myContact+ " \nAddress : " +myAddress);
+                }
+        </script>
+</body>
+</html>

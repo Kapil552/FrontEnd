@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="test"></h1>
+
+    <script>
+        function Person(firstName, lastName, age, city){
+            this.firstName=firstName;
+            this.lastName=lastName;
+            this.age=age;
+            this.city=city;
+        };
+
+        const myFather=new Person("Ramesh", "Kurmi", 50, "Khurai");
+        const myMother=new Person("Angoori", "Kurmi", 48, "Khurai");
+
+        Person.prototype.nationality="Indian";
+
+        document.getElementById('test').innerHTML="my Father nationality is : " +myFather.nationality;
+
+    </script>
+</body>
+</html>
