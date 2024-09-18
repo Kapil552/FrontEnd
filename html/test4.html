@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loop</title>
+</head>
+<body>
+    <h1 id="test"></h1>
+
+    <script>
+        const myArr=["Country", "State", "District", "City", "Village"];
+
+        let i=1, len=myArr.length, value="";
+
+        for(; i<len; i++){
+            value += myArr[i] +"<br>";
+        }
+        
+        document.getElementById('test').innerHTML=value;
+
+    </script>
+</body>
+</html>

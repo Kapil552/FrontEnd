@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js comparison</title>
+</head>
+
+<body>
+    <h3 id="test"></h3>
+
+    <h1>JS comparison</h1>
+
+    <p>Enter Age and check user is Votable or not</p>
+
+    <input type="text" id="age">
+    <button onclick="myFunction()"> Click Here</button>
+    <script>
+        function myFunction() {
+            let Votable;
+            let age = document.getElementById('age').value;
+
+            if (isNaN(age)||(age==0)) {
+                Votable = "Invalid Input";
+                alert(Votable);
+            }
+            else {
+                Votable = (age < 18) ? "Under Age" : "Old Enough";
+                alert(Votable+ " to Vote ");
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

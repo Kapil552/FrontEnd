@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+
+<body>
+    <h3>Answer the Following Questions</h3>
+    <h1 id="test">Q 1 -> What is the capital of France?</h1>
+    <h2 id="test1"></h2>
+    <input type="text" id="ans">
+    <button type="submit" onclick="myFunc()">Submit</button>
+    <button onclick="next()">Next</button>
+    <script>
+        const quiz = [
+            { question: "What is the capital of France?", correctAnswer: "Paris" },
+            { question: "Is JavaScript a programming language? (yes/no)", correctAnswer: "yes" },
+            { question: "What is 5 + 3?", correctAnswer: "8" },
+            { question: "Is Earth the third planet from the Sun? (yes/no)", correctAnswer: "yes" },
+            { question: "What color is the sky on a clear day?", correctAnswer: "blue" },
+            { question: "Is 10 greater than 15? (yes/no)", correctAnswer: "no" },
+            { question: "What is the opposite of 'up'?", correctAnswer: "down" },
+            { question: "Is water a solid at room temperature? (yes/no)", correctAnswer: "no" },
+            { question: "Which planet is known as the Red Planet?", correctAnswer: "Mars" },
+            { question: "How many legs does a spider have?", correctAnswer: "8" }
+        ];
+
+        let result = "";
+        let i=1;
+        let userAnswer="";
+        let answer ="";
+        function myFunc(){
+            userAnswer = document.getElementById('ans').value;
+            answer = quiz[i-1].correctAnswer;
+            if(answer.toUpperCase()==userAnswer.toUpperCase()){
+                alert("Correct Answer");
+            }
+            else{
+                alert("wrong answer");
+            }
+            // i++;
+
+            // result="";
+        }
+
+        function next(){
+            result = result + " Q " + (i + 1) + " -> " + quiz[i].question + " <br> ";
+            document.getElementById('test').innerHTML = result;
+            i++;
+            result="";
+        }
+    </script>
+</body>
+
+</html>
