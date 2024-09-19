@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // const numbers = [1, 2, 3, 4, 5];
+
+        // function addOne(array) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         console.log(array[i] + 1);
+        //     }
+        // }
+        // addOne(numbers);
+
+        const numbers = [1, 2, 3, 4, 5];
+
+        numbers.forEach((number) => console.log(number + 1));
+
+
+        // const numbers = [1, 2, 3, 4, 5];
+
+        // function isOdd(array, oddArr = []) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         if (array[i] % 2 !== 0) {
+        //             oddArr.push(array[i]);
+        //         }
+        //     }
+        //     return oddArr;
+        // }
+
+        // const oddArray = isOdd(numbers);
+        // console.log(oddArray);
+
+        const oddArray = numbers.filter((number) => number % 2 != 0);
+        console.log(oddArray);
+
+
+        // function addOneMore(array, newArr = []) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         newArr.push(array[i] + 1);
+        //     }
+        //     return newArr;
+        // }
+
+        // const newArray = addOneMore(numbers);
+        // console.log(newArray);
+
+        const newArr1 = numbers.map((number) => number + 1);
+        console.log(newArr1);
+
+
+
+        // function getTotalValue(array) {
+        //     let total = 0;
+        //     for (let i = 0; i < array.length; i++) {
+        //         total += array[i];
+        //     }
+        //     return total;
+        // }
+
+        // const totalValue = getTotalValue(numbers);
+        // console.log(totalValue);
+
+        const totalValue = numbers.reduce((sum, number) => (sum + number));
+        console.log(totalValue);
+    </script>
+</body>
+
+</html>
