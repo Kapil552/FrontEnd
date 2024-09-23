@@ -1,0 +1,134 @@
+<!-- Design Explanation: Build a basic calculator that performs addition, 
+subtraction, multiplication, and division. Use functions to handle the 
+calculations and update the display. Use event listeners to capture user 
+input from buttons. Also show history of last five calculations. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            background-color: grey;
+            width: 80%;
+            height: 80vh;
+        }
+
+        form {
+            align-items: center;
+            justify-content: center;
+            /* display: flex; */
+            flex-direction: column;
+            /* background-color: grey; */
+            text-align: center;
+            width: 20%;
+            justify-content: center;
+            margin-left: 40%;
+        }
+
+        input {
+            width: 50px;
+            padding: 3px;
+            margin: 5px 0px;
+            background-color: rgb(230, 207, 9);
+            border-radius: 5px;
+            box-shadow: black;
+            border: 1px solid;
+            cursor: pointer;
+        }
+
+        input:hover {
+            background: #cebea9;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 id="calc" style="text-align: center;">Basic Calculator </h1>
+        <form name="title">
+            <input style="width: 100px; background-color: white;" type="text" id="inputt" name="answer">
+            <input type="button" id="clear" value="Clear" onclick="document.getElementById('inputt').value=''">
+            <input type="button" onclick="history()" value="history"><br><br>
+            <input type="button" value="1" onclick="display('1')">
+            <input type="button" value="2" onclick="display('2')">
+            <input type="button" value="3" onclick="display('3')">
+            <input type="button" value="+" onclick="display('+')"><br><br>
+
+            <input type="button" value="4" onclick="display('4')">
+            <input type="button" value="5" onclick="display('5')">
+            <input type="button" value="6" onclick="display('6')">
+            <input type="button" value="-" onclick="display('-')"><br><br>
+
+            <input type="button" value="7" onclick="display('7')">
+            <input type="button" value="8" onclick="display('8')">
+            <input type="button" value="9" onclick="display('9')">
+            <input type="button" value="*" onclick="display('*')"><br><br>
+
+            <input type="button" value="/" onclick="display('/')">
+            <input type="button" value="0" onclick="display('0')">
+            <input type="button" value="." onclick="display('.')">
+
+            <input type="button" id="eql" value="=" onclick="solve()"><br><br>
+
+            <h2>5 Recent calculation</h2>
+            <h3 id="hist"></h3>
+        </form>
+    </div>
+
+    <script>
+        let arr = new Array(5).fill('');
+        var result = '';
+        function display(x) {
+            document.getElementById("inputt").value += x;
+            return x;
+        }
+
+        function solve() {
+            let y = document.getElementById('inputt').value;
+
+            result = eval(y);
+
+            document.getElementById('inputt').value = result;
+
+            arr.unshift(result);
+            return result;
+
+        }
+
+
+        function history() {
+            let hstry = '';
+            let hstHTML = document.getElementById('hist');
+            for (let i = 0; i < 5; i++) {
+                hstry += "<br> " + arr[i];
+                hstHTML.innerHTML = hstry;
+
+            }
+        }
+
+        // function clear() {
+        //     let button=document.getElementById('inputt');
+
+        //     button.addEventListener('click', (e)=>{
+        //         if(e.target.value.innerHTML=="Clear"){
+        //             result='';
+        //             document.getElementById('inputt').value=result;
+        //         }
+        //     });
+
+        // }
+
+    </script>
+
+
+
+</body>
+
+</html>
