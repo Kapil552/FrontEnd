@@ -1,0 +1,185 @@
+Function Expression :-
+-----------------------
+	The Javascript Function Expression is used to define a function inside any expression. The Function Expression allows us to create an anonymous 
+function that doesn’t have any function name which is the main difference between Function Expression and Function Declaration.
+
+Syntax for Function Declaration:
+function functionName(x, y) { statements... return (z) };
+
+Syntax for Function Expression (anonymous):
+let variableName = function(x, y) { statements... return (z) };
+
+Syntax for Function Expression (named): 
+let variableName = function functionName(x, y) 
+{ statements... return (z) };
+
+Syntax for Arrow Function: 
+let variableName = (x, y) => { statements... return (z) }; 
+
+Note: 
+=> A function expression has to be defined first before calling it or using it as a parameter.
+=> An arrow function must have a return statement.
+
+Example 1: Code for Function Declaration.
+	
+	function callAdd(x, y) {
+	     let z = x + y;
+	     return z;
+	}
+	console.log("Addition : " + callAdd(7, 4));  //Addition : 11
+
+Example 2: Code for Function Expression (anonymous) 
+
+	   let calSub = function (x, y) {
+	   let z = x - y;
+	   return z;
+	}
+	console.log("Subtraction : " + calSub(7, 4)); //Subtraction : 3
+
+Example 3: Code for Function Expression (named) 
+
+	      let calMul = function Mul(x, y) {
+	      let z = x * y;
+	      return z;
+	}
+	console.log("Multiplication : " + calMul(7, 4));  //Multiplication : 28
+
+Example 4: Code for Arrow Function 
+
+	    let calDiv = (x, y) => {
+	    let z = x / y;
+	    return z;
+	}
+	console.log("Division : " + calDiv(24, 4));  //Division : 6
+--------------------------------------------------------------------------------------------------------------------------------
+
+  Higher Order Function :-
+---------------------------
+		In this definition, operations can mean taking one or more functions as an argument OR
+ returning a function as the result. It doesn't have to do both.
+
+Let's look at an example of a higher order function
+Without a higher order function, if I want to add one to each number in an array and display it in the console, \
+I can do the following:
+
+	const numbers = [1, 2, 3, 4, 5];
+	function addOne(array) {
+  	    for (let i = 0; i < array.length; i++) {
+    	       console.log(array[i] + 1);
+  	}
+             }
+             addOne(numbers);
+
+
+The function addOne() accepts an array, adds one to each number in the array, and displays it in the console. 
+The original values remain unchanged in the array, but the function is doing something for each value.
+However, using what may be the most common higher order function, forEach(), we can simplify this process:
+
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach((number) => console.log(number + 1));
+
+Whoa.\
+We've abstracted the function definition and call in the original code above to just one line!
+We apply forEach() to the array named "numbers." There is an anonymous function at the beginning of forEach() 
+that accepts each element of the array - one at a time.
+With the array named numbers, it makes sense to name each element of the array "number" although we could have 
+named it "element" or "el" or even "whatever".
+
+The higher order function forEach() applies a function to each element of an array.
+Another higher order function example
+Without a higher order function, if I wanted to create a new array that only has the odd numbers from the numbers array, 
+I could do the following:
+
+	const numbers = [1, 2, 3, 4, 5];
+
+	function isOdd(array, oddArr = []) {
+  	for (let i = 0; i < array.length; i++) {
+    	if (array[i] % 2 !== 0) {
+      	oddArr.push(array[i]);
+    	}
+             }
+            return oddArr;
+       }
+
+      const oddArray = isOdd(numbers);
+      console.log(oddArray);
+
+The function isOdd() accepts an array and has a second optional parameter for an array. 
+If not provided, the array has a default value of an empty array.
+The function checks each number in the array to see if it is an odd number. If the number is odd, 
+it adds it to the array from the second parameter. After all numbers are checked, the array from the second parameter is returned.
+
+If we use the higher order function, filter(), we can abstract so much:
+
+	const numbers = [1, 2, 3, 4, 5];
+
+	const oddArray = numbers.filter((number) => number % 2 !== 0);
+	console.log(oddArray);
+
+We start by defining the new array oddArray because applying filter() will create a new array. 
+The higher order function will return each element that meets the condition set within the anonymous 
+function it receives. The anonymous function is once again applied to each element in the numbers array.
+
+
+creating a new array with those new values instead? Without a higher order function, 
+I could do the following:
+
+	const numbers = [1, 2, 3, 4, 5];
+
+	function addOneMore(array, newArr = []) {
+  	for (let i = 0; i < array.length; i++) {
+    	newArr.push(array[i] + 1);
+ 	 }
+        return newArr;
+    }
+
+     const newArray = addOneMore(numbers);
+     console.log(newArray);
+
+The function addOneMore() once again accepts an array and has an array as a second parameter 
+which has a default value of empty. One is added to each element of the existing numbers array and 
+the result is pushed to the new array which is returned.
+
+We abstract this away with the higher order function, map():
+
+	const numbers = [1, 2, 3, 4, 5];
+
+	const newArray = numbers.map((number) => number + 1);
+	console.log(numbers);
+	
+We start by defining the newArray because map() creates a new array. Like forEach(), 
+map() applies an anonymous function to each element of the numbers array. However, map() creates a new array in the process.
+
+Just One More Example
+What if we wanted to find the total of all values in the numbers array?
+
+Without a higher order function, I could do this:
+
+	const numbers = [1, 2, 3, 4, 5];
+
+	function getTotalValue(array) {
+  	let total = 0;
+  	for (let i = 0; i < array.length; i++) {
+   	 total += array[i];
+  	}
+        return total;
+    }
+
+     const totalValue = getTotalValue(numbers);
+     console.log(totalValue);
+
+The function getTotalValue() accepts an array, defines the total variable as equal to zero, and 
+loops through the array while adding each element to the total variable. Finally, it returns the total.
+
+With the higher order function reduce(), this process can yet again be abstracted away:
+
+	const numbers = [1, 2, 3, 4, 5];
+
+	const totalValue = numbers.reduce((sum, number) => sum + number);
+	console.log(totalValue);
+
+The higher order function reduce() expects two parameters in the anonymous function within.
+
+The first parameter is an accumulator and the second parameter is an element from the numbers array.
+
+The accumulator parameter (sum in the example above) keeps track of the total as reduce() applies the anonymous function to each element of the array.

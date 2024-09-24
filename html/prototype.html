@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        class Person{
+         constructor(firstName, lastName, age, place){
+            this.firstName=firstName;
+            this.lastName=lastName;
+            this.age=age;
+            this.place=place;
+        }
+    }
+
+    
+       // Person.prototype.nationality("Indian");
+
+        const myFather=new Person("Ramesh", "Kurmi",50, "sagar");
+
+        document.getElementById("demo").innerHTML="My Father's name is " +myFather.nationality; 
+    </script>
+</body>
+</html>     

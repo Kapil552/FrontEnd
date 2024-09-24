@@ -1,0 +1,5 @@
+JavaScript Object Methods can be grouped into:
+
+1. General Methods
+2. Property Management Methods
+3. Object Protection Methods
