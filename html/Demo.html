@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Document</title>
-		<link rel="stylesheet" href="test.css">
-		<script src="abc.js"></script>
-		<style>
-			p{
-				color:purple;
-			}
+<html lang="en">
 
-			body{
-				background-color:yellow;
-			}
-		</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
 
-	</head>
-	<body style="text-align:center">
-		<h1 style="color:red;">My Info.....</h1>
-		<p>First Name - Kapil</p>
-		<p class="name">Last Name  - Kurmi</p>
-		<p id="contact">Contact number is 7509482154</p>
-		<button type="button" onclick='document.getElementById("contact").innerHTML="New Contact Number is 6261040441"'>
-			Click Here To Change Contact Number</button>
-		<button type="button" onclick="myFunc()">Submit</button>
-		
-	</body>
+<body>
+    <script>
+        // function demo(){
+        //     let x="indore";
+
+        //     function test(){
+        //         console.log(x);
+        //     }
+        //     x="Bhopal";
+        //     return test;
+        // }
+
+        // let y=demo();
+        // y();
+        function demo() {
+            const x = () => {
+                let a = 1;
+                console.log(a);
+                const y = () => {
+                    a = 2;
+                    console.log(a);
+                    const z = () => {
+                        a = 3;
+                        console.log(a);
+                    }
+                    z();
+                }
+                a=10;
+                y();
+            }
+            return x;
+        }
+
+        let test=demo();
+        test();
+    </script>
+</body>
+
 </html>
