@@ -1,0 +1,61 @@
+form{
+    width: 1200px;
+    display: flex;
+    margin: auto;
+  }
+  
+  form input{
+    flex-basis: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 10px;
+  }
+  
+  form button{
+    flex-basis: 20%;
+    margin-left: 5%;
+    border-radius: 5px;
+    background-color: rgb(107, 158, 57);
+    color: white;
+    font-size: 15px;
+   
+  }
+  
+  .outerdiv{
+    width: 965px;
+    margin-top: 10px;
+    font-size: 18px;
+  
+  }
+  
+  .outerdiv ul{
+    margin: 0px;
+    margin-top: 20px ;
+    margin-left: 35px;
+    padding: 0px;
+    list-style: none;
+  }
+  
+  .outerdiv ul li{
+    background-color: rgb(197, 215, 216);
+    color: rgb(20, 16, 20) ;
+    border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+    margin-bottom: 10px;
+  
+    padding: 10px;
+  }
+  
+  .outerdiv ul li span{
+      right: 20px;
+      position: absolute;
+      cursor: pointer;
+  }
+  
+  .complete{
+    background-color: grey !important;
+    text-decoration: line-through;
+    color: black ;
+  }
