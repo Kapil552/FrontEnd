@@ -17,11 +17,10 @@ public class StudentService implements StudentDao {
 	private StudentRepo studentRepo;
 	
 	@Override
-	public Student saveStudent(Student student) {
-		
-		return studentRepo.save(student);
+	public List<Student> createStudents(List<Student> students) {
+		return (List<Student>) studentRepo.saveAll(students);
 	}
-
+	
 	@Override
 	public void deleteStudentById(int id) {
 		studentRepo.deleteById(id);
@@ -53,10 +52,7 @@ public class StudentService implements StudentDao {
 	public List<Student> getAllStudent() {
 		return (List<Student>) studentRepo.findAll();
 	}
-	
-	
-	
 
-	
+
 	
 }

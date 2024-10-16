@@ -1,5 +1,7 @@
 package com.crud.controller;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,10 +23,14 @@ public class StudentController {
 	@Autowired
 	private StudentDao studentDao;
 	
-	@PostMapping("student")
-	public Student saveStudent(@RequestBody Student student) {
-		System.out.println("save");
-		return studentDao.saveStudent(student);
+	@PostMapping("create")
+	public List<Student> createStudents(@RequestBody List<Student> students) {
+		List<Student> list=new ArrayList<Student>();
+		for(Student st:students) {
+			list.add(st);
+		}
+		
+		return  studentDao.createStudents(list);
 	}
 	
 	@GetMapping("getData")
@@ -36,10 +42,14 @@ public class StudentController {
 	public Student updateStudent(@RequestBody Student student, @PathVariable int id) {
 		return studentDao.update(student, id);
 	}
-	
+
 	@DeleteMapping("delete/{id}")
 	public void delete(@PathVariable int id) {
 		studentDao.deleteStudentById(id);
 	}
 	
+	@GetMapping("get/{id}")
+	public Optional<Student> getStudentById(@PathVariable int id) {
+		return studentDao.getStudentById(id);
+	}
 }

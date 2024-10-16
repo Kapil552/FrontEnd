@@ -9,9 +9,9 @@ import com.crud.model.Student;
 
 @Repository
 public interface StudentRepo extends CrudRepository<Student, Integer> {
-
+	
 	@Override
-	public <S extends Student> S save(S entity);
+	public <S extends Student> Iterable<S> saveAll(Iterable<S> entities);
 	
 	@Override
 	public void deleteById(Integer id);

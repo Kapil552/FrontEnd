@@ -17,7 +17,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Table(name="student_data")
-public class Student {
+public class Student{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +29,10 @@ public class Student {
 	
 	@Column
 	private String branch;
+	
+	
+	@Column()
+	private int rollno;
 	
 	
 }

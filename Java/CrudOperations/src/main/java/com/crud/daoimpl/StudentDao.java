@@ -7,7 +7,7 @@ import com.crud.model.Student;
 
 public interface StudentDao {
 
-	public Student saveStudent(Student student);
+	public List<Student> createStudents(List<Student> students);
 	
 	public void deleteStudentById(int id);
 	
@@ -16,6 +16,9 @@ public interface StudentDao {
 	public Optional<Student> getStudentById(int id);
 	
 	public List<Student> getAllStudent();
+
+	
+
 	
 	
 }
