@@ -31,8 +31,9 @@ public class Student{
 	private String branch;
 	
 	
-	@Column()
+	@Column
 	private int rollno;
+	
 	
 	
 }
