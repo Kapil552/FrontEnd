@@ -9,14 +9,14 @@ public interface StudentDao {
 
 	public List<Student> createStudents(List<Student> students);
 	
-	public void deleteStudentById(int id);
+	public void deleteStudentById(Integer id);
 	
-	public Student update(Student student, int id);
+	public Message update(Student student);
 	
-	public Optional<Student> getStudentById(int id);
+	public Optional<Student> getStudentById(Integer id);
 	
 	public List<Student> getAllStudent();
 
-	public Student findByRollNo(int rollNo);
+//	public Student findByRollNo(int rollNo);
 
 }

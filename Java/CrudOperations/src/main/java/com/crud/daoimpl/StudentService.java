@@ -1,7 +1,6 @@
 package com.crud.daoimpl;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,75 +9,46 @@ import org.springframework.stereotype.Service;
 import com.crud.model.Student;
 import com.crud.repository.StudentRepo;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
-import jakarta.persistence.PersistenceContext;
-
 @Service
 public class StudentService implements StudentDao {
 
-	@Autowired
-	private StudentRepo studentRepo;
-	
-	@PersistenceContext
-	public EntityManager entityManager;
-	
-	@Override
-	public List<Student> createStudents(List<Student> students) {		
-		return (List<Student>) studentRepo.saveAll(students);
-	}
-	
-	@Override
-	public void deleteStudentById(int id) {
-		studentRepo.deleteById(id);
-		
-	}
+    @Autowired
+    private StudentRepo studentRepo;
 
-	@Override
-	public Student update(Student student, int id) {
-		
-		Student std = studentRepo.findById(id).get();
-	 
-		if (Objects.nonNull(student.getName())
-	            && !"".equalsIgnoreCase(
-	            		student.getName())) {
-				std.setName(
-	            		student.getName());
-	        }
-	 
-	        if (Objects.nonNull(
-	        		student.getBranch())
-	            && !"".equalsIgnoreCase(
-	            		student.getBranch())) {
-	        	std.setBranch(
-	            		student.getBranch());
-	        }
-		return studentRepo.save(std);
-	}
+    @Override
+    public List<Student> createStudents(List<Student> students) {        
+        return (List<Student>) studentRepo.saveAll(students);
+    }
 
-	@Override
-	public Optional<Student> getStudentById(int id) {
-		return studentRepo.findById(id);
-	}
+    @Override
+    public void deleteStudentById(Integer id) {
+        studentRepo.deleteById(id);; // Use the repository method for deletion
+    }
 
-	@Override
-	public List<Student> getAllStudent() {
-		return (List<Student>) studentRepo.findAll();
-	}
+    @Override
+    public Message update(Student student) {
+        Message message = new Message();
+        if (studentRepo.existsById(student.getId())) {
+            studentRepo.save(student); // Use save to update
+            message.addMessage("Student Updated Successfully");
+        } else {
+            message.addMessage("Student not found");
+        }
+        return message;
+    }
 
-	@Override
-	public Student findByRollNo(int rollNo) {
-		try {
-			String jpql = "SELECT u FROM Student u WHERE u.rollno = :rollno"; // Using UserDTO here
-			return (Student) entityManager.createQuery(jpql, Student.class) // Specify UserDTO.class for type safety
-					.setParameter("rollno", rollNo).getSingleResult();
-		} catch (NoResultException e) {
-			// Handle the case where no result is found
-			return null; // or throw your custom exception
-		}
-	}
+    @Override
+    public Optional<Student> getStudentById(Integer id) {
+        return studentRepo.findById(id);
+    }
 
+    @Override
+    public List<Student> getAllStudent() {
+        return (List<Student>) studentRepo.findAll();
+    }
 
-
-	
+//    @Override
+//    public Student findByRollNo(int rollNo) {
+//        return studentRepo.findByRollNo(rollNo); // Assume you have a method in the repository
+//    }
 }
