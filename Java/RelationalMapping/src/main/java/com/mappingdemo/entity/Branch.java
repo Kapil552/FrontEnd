@@ -1,9 +1,13 @@
 package com.mappingdemo.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -22,11 +26,9 @@ public class Branch {
 	
 	private String branchName;
 	
-	@OneToOne
-	@JoinColumn(name="student_id")
-	private Student student;
+	@OneToMany
+	private List<Student> students;
 	
-	@ManyToOne
-	@JoinColumn(name="faculty_id")
-	private Faculty faculty;
+	@ManyToMany
+	private List<Faculty> faculty;
 }

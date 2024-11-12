@@ -1,14 +1,15 @@
 package com.service.hotelservice.hotelservicesimpl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.service.hotelservice.entities.Hotel;
 import com.service.hotelservice.exceptions.ResourceNotFoundException;
+import com.service.hotelservice.hotelrepository.HotelRepository;
 import com.service.hotelservice.hotelservices.HotelService;
-import com.service.hotelservice.repository.HotelRepository;
 
 @Service
 public class HotelServiceImpl implements HotelService{
@@ -18,6 +19,8 @@ public class HotelServiceImpl implements HotelService{
 	
 	@Override
 	public Hotel create(Hotel hotel) {
+		String responseId=UUID.randomUUID().toString();
+		hotel.setHotelId(responseId);
 		return hotelRepository.save(hotel);
 	}
 

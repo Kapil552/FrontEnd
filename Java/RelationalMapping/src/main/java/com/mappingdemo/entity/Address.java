@@ -3,7 +3,7 @@ package com.mappingdemo.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,9 +15,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="addressDetails")
 public class Address {
+	
 
 	@Id
 	private String Country;
+	
+	private String addressType;
 	
 	private String State;
 	
@@ -25,11 +28,9 @@ public class Address {
 	
 	private String village;
 	
-	@OneToOne
-	@JoinColumn(name="student_id")
+	@ManyToOne
 	private Student student;
 	
-	@OneToOne
-	@JoinColumn(name="faculty_id")
+	@ManyToOne
 	private Faculty faculty;
 }

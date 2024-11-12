@@ -1,7 +1,6 @@
 package com.service.hotelservice.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,9 +24,6 @@ public class HotelController {
 	
 	@PostMapping("/save")
 	public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel){
-		
-		String responseId=UUID.randomUUID().toString();
-		hotel.setHotelId(responseId);
 		return ResponseEntity.status(HttpStatus.CREATED).body(hotelService.create(hotel));
 	}
 	

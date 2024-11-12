@@ -38,8 +38,8 @@ public class RatingsController {
 	}
 	
 	@GetMapping("/getByHotelId/{hotelId}")
-	public ResponseEntity<List<Ratings>> getRatingsByHotelId(@PathVariable String hotelID){
-		return ResponseEntity.ok(ratingsService.getRatingsByHotelId(hotelID));
+	public ResponseEntity<List<Ratings>> getRatingsByHotelId(@PathVariable String hotelId){
+		return ResponseEntity.ok(ratingsService.getRatingsByHotelId(hotelId));
 	}
 
 }
